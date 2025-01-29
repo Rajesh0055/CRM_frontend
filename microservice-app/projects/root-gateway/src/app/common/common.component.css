@@ -1,0 +1,21 @@
+.service-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 50px;
+  }
+  
+  .service-buttons button {
+    padding: 15px 25px;
+    font-size: 16px;
+  }
+  
+  .service-buttons button:hover {
+    opacity: 0.8;
+  }
+  
+  iframe {
+    border: none;
+    margin-top: 20px;
+  }
+  

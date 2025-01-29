@@ -1,0 +1,24 @@
+<div class="sidebar" [class.collapsed]="isCollapsed">
+    <button class="toggle-btn" (click)="toggleSidebar()">
+      <i class="bi bi-list"></i>
+    </button>
+  
+    <ul class="menu">
+      <li>
+        <a routerLink="/hr-dashboard">
+          <i class="bi bi-speedometer2"></i> <span *ngIf="!isCollapsed">Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/hr-clients">
+          <i class="bi bi-people"></i> <span *ngIf="!isCollapsed">Clients</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/hr-notifications">
+          <i class="bi bi-bell"></i> <span *ngIf="!isCollapsed">Notifications</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
