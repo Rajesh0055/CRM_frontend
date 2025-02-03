@@ -1,4 +1,106 @@
-<div class="">
-    <router-outlet />
-</div>
+<div class="w-full h-screen flex flex-col">
+    <!-- Header -->
+    <header class="p-4 flex text-white items-center justify-between shadow-md border-t-4 border-gray-800">
+        <!-- Left Side: Dashboard Title & Toggle Button -->
+        <div class=" flex items-center space-x-4">
+            <button (click)="toggleSidebar()" class="text-white p-2 ml-2 text-xl rounded-md hover:bg-gray-700">
+                <i class="bi" [ngClass]="isSidebarCollapsed ? 'bi-arrow-right-circle' : 'bi-arrow-left-circle'"></i>
+            </button>
+            <span class="text-xl font-semibold mb-4 ml-5 mt-4">CRM Management</span>
+        </div>
+        <div class="relative">
+            <input
+              type="text"
+              class="search-input"
+              placeholder="Search..."
+           
+            />
+            <i class="bi bi-search search-icon"></i> <!-- Search icon -->
+          </div>
+        <!-- Right Side: Current Time & Logged User -->
+        <div class="flex items-center space-x-4 text-white">
 
+            <div class="text-600">
+                <span id="current-time">{{ currentTime }}</span>
+            </div>
+            <div class="relative inline-block text-left group">
+                <!-- User's Name -->
+                <button class=" text-white flex items-center space-x-2">
+                  <span>John Doe</span>
+                </button>
+              
+                <!-- Dropdown Menu (Visible on hover) -->
+                <div class="dropdown-menu absolute right-0 w-48 mt-2 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-in-out">
+                  <ul class="p-0 m-0">
+                    <li class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">
+                      <i class="fas fa-user mr-3 text-gray-600"></i> Profile
+                    </li>
+                    <li class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">
+                      <i class="fas fa-cogs mr-3 text-gray-600"></i> Settings
+                    </li>
+                    <li class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">
+                      <i class="fas fa-sign-out-alt mr-3 text-gray-600"></i> Logout
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              
+              
+              
+        </div>
+    </header>
+
+    <!-- Main Layout (Sidebar + Content) -->
+    <div class="flex flex-1">
+
+        <!-- Sidebar -->
+        <div [ngClass]="{ 'w-64': !isSidebarCollapsed, 'w-20': isSidebarCollapsed }"
+            class="bg-gray-800 text-white p-5 transition-all duration-300 shadow-lg h-full">
+            <!-- Sidebar Logo and Title -->
+            <div class="flex items-center space-x-2 mb-5">
+                <img src="https://netstorage.ringcentral.com/appext/logo/7gufiGT3T3CCuCP37hMDaQ~GB48swpGSoyDYxiMFv2dAw/e4c88859-70e3-468c-821d-15aebb1bfe89.png"
+                    alt="Logo" class="w-10 h-10 rounded-full shadow-md">
+                <span *ngIf="!isSidebarCollapsed" class="text-xl font-semibold">CRM</span>
+            </div>
+
+            <!-- Sidebar Menu -->
+            <nav>
+                <ul>
+                    <li class="mb-4">
+                        <a routerLink="/crm-admin" routerLinkActive="active" class="menu-link" class="flex items-center text-white hover:bg-gray-700 px-3 py-2 rounded-md">
+                            <i class="bi bi-house-door"></i>
+                            <span *ngIf="!isSidebarCollapsed" class="ml-2">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="mb-4">
+                        <a routerLink="/crm-clients" routerLinkActive="active" class="menu-link"
+                            class="flex items-center text-white hover:bg-gray-700 px-3 py-2 rounded-md">
+                            <i class="bi bi-person"></i>
+                            <span *ngIf="!isSidebarCollapsed" class="ml-2">Clients</span>
+                        </a>
+                    </li>
+                    <li class="mb-4">
+                        <a routerLink="/crm-leads" routerLinkActive="active" class="menu-link" class="flex items-center text-white hover:bg-gray-700 px-3 py-2 rounded-md">
+                            <i class="bi bi-person-lines-fill"></i>
+                            <span *ngIf="!isSidebarCollapsed" class="ml-2">Leads</span>
+                        </a>
+                    </li>
+                    <li class="mb-4">
+                        <a  routerLink="/crm-reports" routerLinkActive="active" class="menu-link" class="flex items-center text-white hover:bg-gray-700 px-3 py-2 rounded-md">
+                            <i class="bi bi-bar-chart"></i>
+                            <span *ngIf="!isSidebarCollapsed" class="ml-2">Reports</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+
+        <main class="flex-1 overflow-auto">
+            <router-outlet></router-outlet>
+          </main>
+
+    </div>
+    <footer class="bg-gray-800 text-white text-center p-3">
+        &copy; 2025 CRM Dashboard. All rights reserved.
+    </footer>

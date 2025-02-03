@@ -1,4 +1,91 @@
-<app-hr-sidebar></app-hr-sidebar>
-<div class="content">
-  <h2>HR Management Dashboard</h2>
+
+<div id="board" class="w-full h-screen flex flex-col">
+  <!-- Header -->
+  <header class="p-4 flex items-center justify-between shadow-md border-t-4 border-green-800 bg-green-700">
+      <!-- Left Side: Dashboard Title & Toggle Button -->
+      <div class="flex items-center space-x-4">
+          <!-- <h1 class="text-lg font-semibold">CRM Dashboard</h1> -->
+          <!-- Sidebar Toggle Button -->
+          <button (click)="toggleSidebar()" class="text-white text-xl p-2 rounded-md hover:bg-gray-300">
+            <i class="bi" [ngClass]="isSidebarCollapsed ? 'bi-arrow-right-circle' : 'bi-arrow-left-circle'"></i>
+        </button>
+          
+      </div>
+      <!-- Right Side: Current Time & Logged User -->
+      <div class="flex items-center space-x-4 text-white ">
+          <div class="text-600">
+              <span id="current-time">{{ currentTime }}</span>
+          </div>
+          <div class="text-600">
+              <span>Welcome, John Doe</span>
+          </div>
+      </div>
+  </header>
+
+  <!-- Main Layout (Sidebar + Content) -->
+  <div class="flex flex-1">
+      
+      <!-- Sidebar -->
+      <div [ngClass]="{ 'w-64': !isSidebarCollapsed, 'w-20': isSidebarCollapsed }"
+          class="bg-green-700 text-white p-5 transition-all duration-300 shadow-lg h-full">
+          <!-- Sidebar Logo and Title -->
+          <div class="flex items-center space-x-2 mb-5">
+              <img src="https://netstorage.ringcentral.com/appext/logo/7gufiGT3T3CCuCP37hMDaQ~GB48swpGSoyDYxiMFv2dAw/e4c88859-70e3-468c-821d-15aebb1bfe89.png"
+                  alt="Logo" class="w-10 h-10 rounded-full shadow-md">
+              <span *ngIf="!isSidebarCollapsed" class="text-xl font-semibold">HR Management</span>
+          </div>
+
+          <!-- Sidebar Menu -->
+          <nav>
+              <ul>
+                  <li class="mb-4">
+                      <a href="#" class="flex items-center text-white hover:bg-gray-700 px-3 py-2 rounded-md">
+                          <i class="bi bi-house-door"></i>
+                          <span *ngIf="!isSidebarCollapsed" class="ml-2">Dashboard</span>
+                      </a>
+                  </li>
+                  <li class="mb-4">
+                      <a href="#" class="flex items-center text-white hover:bg-gray-700 px-3 py-2 rounded-md">
+                          <i class="bi bi-person"></i>
+                          <span *ngIf="!isSidebarCollapsed" class="ml-2">Clients</span>
+                      </a>
+                  </li>
+                  <li class="mb-4">
+                      <a href="#" class="flex items-center text-white hover:bg-gray-700 px-3 py-2 rounded-md">
+                          <i class="bi bi-person-lines-fill"></i>
+                          <span *ngIf="!isSidebarCollapsed" class="ml-2">Leads</span>
+                      </a>
+                  </li>
+                  <li class="mb-4">
+                      <a href="#" class="flex items-center text-white hover:bg-gray-700 px-3 py-2 rounded-md">
+                          <i class="bi bi-bar-chart"></i>
+                          <span *ngIf="!isSidebarCollapsed" class="ml-2">Reports</span>
+                      </a>
+                  </li>
+              </ul>
+          </nav>
+      </div>
+     
+      <!-- Content Area -->
+      <div class="flex-1 bg-g-100 relative p-6">
+          <!-- Loading Effect (Centered Spinner) -->
+          <div *ngIf="isLoading" class="absolute inset-0 flex items-center justify-center bg-white bg-opacity-75">
+              <div class="loader"></div>
+          </div>
+
+          <!-- Loading Bar (Top Border Animation) -->
+          <div *ngIf="isLoading" class="absolute top-0 left-0 w-full h-1 bg-gray-800 animate-loading-bar"></div>
+
+          <!-- Main Content -->
+         
+          <h1 class="text-2xl font-semibold mb-4">
+             Welcome to HR Management</h1>
+          <p class="text-lg">Select a menu item from the sidebar to get started.</p>
+      </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-green-700 text-white text-center p-3">
+      &copy; 2025 HR Management Dashboard. All rights reserved.
+  </footer>
 </div>
