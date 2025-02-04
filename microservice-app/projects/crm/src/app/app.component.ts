@@ -3,6 +3,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { SocketService } from '../../../shared-services/src/public-api';
 import { CRMAdminComponent } from './components/crm-admin/crm-admin.component';
 import { CommonModule } from '@angular/common';
+import { ViewEncapsulation } from '@angular/core';
 
 
 
@@ -11,7 +12,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-root',
   imports: [RouterOutlet,CommonModule,RouterLink,RouterLinkActive],
   standalone: true,
-    
+  encapsulation: ViewEncapsulation.None,
   providers: [SocketService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
