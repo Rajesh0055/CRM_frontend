@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 import { SocketService } from '../../../../../shared-services/src/public-api';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-hr-sidebar',
-  imports: [],
+  imports: [CommonModule],
+  standalone:true,
   templateUrl: './hr-sidebar.component.html',
   styleUrl: './hr-sidebar.component.css'
 })

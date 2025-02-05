@@ -1,15 +1,32 @@
 import { Component } from '@angular/core';
+<<<<<<< HEAD
 import { SocketService } from '../../../../../shared-services/src/public-api';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-hr-admin',
   imports: [CommonModule],
+=======
+import { HrSidebarComponent } from '../hr-sidebar/hr-sidebar.component'; // Import your sidebar component
+import { SocketService } from '../../../../../shared-services/src/public-api';
+import { CommonModule } from '@angular/common';
+@Component({
+  selector: 'app-hr-admin',
+  imports: [CommonModule],
+  standalone:true,
+>>>>>>> da5f0783c8cc063a04529f7154ebc07d84d4e4b5
   templateUrl: './hr-admin.component.html',
   styleUrl: './hr-admin.component.css'
 })
 export class HRAdminComponent {
+  public messages: string[] = [];
+  public messageToSend: string = ''; // Message that the user wants to send
+  currentTime: string = ''; 
+  isSidebarCollapsed:any=false;
+  isLoading: boolean = true;
+  constructor(private socketService: SocketService) { }
 
+<<<<<<< HEAD
   constructor(private socketService: SocketService) { }
   public messages: string[] = [];
   public messageToSend: string = ''; // Message that the user wants to send
@@ -17,6 +34,8 @@ export class HRAdminComponent {
   isSidebarCollapsed:any=false;
   isLoading: boolean = true;
 
+=======
+>>>>>>> da5f0783c8cc063a04529f7154ebc07d84d4e4b5
   ngOnInit(): void {
     this.updateTime();
     setInterval(() => this.updateTime(), 1000);
@@ -25,6 +44,10 @@ export class HRAdminComponent {
      setTimeout(() => {
       this.isLoading = false;
     }, 3000); 
+<<<<<<< HEAD
+=======
+    
+>>>>>>> da5f0783c8cc063a04529f7154ebc07d84d4e4b5
       this.socketService.connect();
       this.sendMessage();
   }
@@ -51,6 +74,7 @@ export class HRAdminComponent {
   ngOnDestroy(): void {
     this.socketService.closeConnection();
   }
+<<<<<<< HEAD
 
   sendToHR(): void {
     const hrData = { message: 'Hello HR service!' };
@@ -61,6 +85,9 @@ export class HRAdminComponent {
     const crmData = { message: 'Hello CRM service!' };
     this.socketService.sendMessage('crm', crmData); // Send message to CRM service
   }
+=======
+  
+>>>>>>> da5f0783c8cc063a04529f7154ebc07d84d4e4b5
 }
 
 

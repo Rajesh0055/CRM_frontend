@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { SocketService } from '../../../../../shared-services/src/public-api';
-import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import{  Router, RouterLink, RouterLinkActive, RouterModule} from '@angular/router';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-crm-admin',
@@ -17,8 +18,8 @@ export class CRMAdminComponent implements OnInit, OnDestroy {
   isSidebarCollapsed:any=false;
   isLoading: boolean = true;
   constructor(private socketService: SocketService) { }
-
   ngOnInit(): void {
+<<<<<<< HEAD
   //  this.updateTime();
     setInterval(() => this.updateTime(), 1000);
 
@@ -47,9 +48,17 @@ export class CRMAdminComponent implements OnInit, OnDestroy {
 
   toggleSidebar() {
     this.isSidebarCollapsed = !this.isSidebarCollapsed;
+=======
+    throw new Error('Method not implemented.');
+>>>>>>> da5f0783c8cc063a04529f7154ebc07d84d4e4b5
   }
 
   ngOnDestroy(): void {
-    this.socketService.closeConnection();
-  }
-}
+    // Example: Disconnect the socket connection
+    if (this.socketService) {
+      this.socketService.closeConnection(); // Call the cleanup method in the service
+    }
+
+
+
+}}

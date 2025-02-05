@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="w-full h-screen flex flex-col">
   <!-- Header -->
   <header class="bg-orange-800 text-white p-4 flex items-center justify-between shadow-md 
@@ -14,6 +15,27 @@
               <span id="current-time">{{ currentTime }}</span>
           </div>
           <div class="text-white-600">
+=======
+
+<div id="board" class="w-full h-screen flex flex-col">
+  <!-- Header -->
+  <header class="p-4 flex items-center justify-between shadow-md border-t-4 border-green-800 bg-green-700">
+      <!-- Left Side: Dashboard Title & Toggle Button -->
+      <div class="flex items-center space-x-4">
+          <!-- <h1 class="text-lg font-semibold">CRM Dashboard</h1> -->
+          <!-- Sidebar Toggle Button -->
+          <button (click)="toggleSidebar()" class="text-white text-xl p-2 rounded-md hover:bg-gray-300">
+            <i class="bi" [ngClass]="isSidebarCollapsed ? 'bi-arrow-right-circle' : 'bi-arrow-left-circle'"></i>
+        </button>
+          
+      </div>
+      <!-- Right Side: Current Time & Logged User -->
+      <div class="flex items-center space-x-4 text-white ">
+          <div class="text-600">
+              <span id="current-time">{{ currentTime }}</span>
+          </div>
+          <div class="text-600">
+>>>>>>> da5f0783c8cc063a04529f7154ebc07d84d4e4b5
               <span>Welcome, John Doe</span>
           </div>
       </div>
@@ -24,12 +46,20 @@
       
       <!-- Sidebar -->
       <div [ngClass]="{ 'w-64': !isSidebarCollapsed, 'w-20': isSidebarCollapsed }"
+<<<<<<< HEAD
           class="bg-orange-800 text-white p-5 transition-all duration-300 shadow-lg h-full">
+=======
+          class="bg-green-700 text-white p-5 transition-all duration-300 shadow-lg h-full">
+>>>>>>> da5f0783c8cc063a04529f7154ebc07d84d4e4b5
           <!-- Sidebar Logo and Title -->
           <div class="flex items-center space-x-2 mb-5">
               <img src="https://netstorage.ringcentral.com/appext/logo/7gufiGT3T3CCuCP37hMDaQ~GB48swpGSoyDYxiMFv2dAw/e4c88859-70e3-468c-821d-15aebb1bfe89.png"
                   alt="Logo" class="w-10 h-10 rounded-full shadow-md">
+<<<<<<< HEAD
               <span *ngIf="!isSidebarCollapsed" class="text-xl font-semibold">HR Management System</span>
+=======
+              <span *ngIf="!isSidebarCollapsed" class="text-xl font-semibold">HR Management</span>
+>>>>>>> da5f0783c8cc063a04529f7154ebc07d84d4e4b5
           </div>
 
           <!-- Sidebar Menu -->
@@ -44,13 +74,21 @@
                   <li class="mb-4">
                       <a href="#" class="flex items-center text-white hover:bg-gray-700 px-3 py-2 rounded-md">
                           <i class="bi bi-person"></i>
+<<<<<<< HEAD
                           <span *ngIf="!isSidebarCollapsed" class="ml-2">Employee</span>
+=======
+                          <span *ngIf="!isSidebarCollapsed" class="ml-2">Clients</span>
+>>>>>>> da5f0783c8cc063a04529f7154ebc07d84d4e4b5
                       </a>
                   </li>
                   <li class="mb-4">
                       <a href="#" class="flex items-center text-white hover:bg-gray-700 px-3 py-2 rounded-md">
                           <i class="bi bi-person-lines-fill"></i>
+<<<<<<< HEAD
                           <span *ngIf="!isSidebarCollapsed" class="ml-2">Attendance</span>
+=======
+                          <span *ngIf="!isSidebarCollapsed" class="ml-2">Leads</span>
+>>>>>>> da5f0783c8cc063a04529f7154ebc07d84d4e4b5
                       </a>
                   </li>
                   <li class="mb-4">
@@ -64,7 +102,11 @@
       </div>
      
       <!-- Content Area -->
+<<<<<<< HEAD
       <div class="flex-1 bg-gray-100 relative p-6">
+=======
+      <div class="flex-1 bg-g-100 relative p-6">
+>>>>>>> da5f0783c8cc063a04529f7154ebc07d84d4e4b5
           <!-- Loading Effect (Centered Spinner) -->
           <div *ngIf="isLoading" class="absolute inset-0 flex items-center justify-center bg-white bg-opacity-75">
               <div class="loader"></div>
@@ -76,15 +118,24 @@
           <!-- Main Content -->
          
           <h1 class="text-2xl font-semibold mb-4">
+<<<<<<< HEAD
               <button (click)="toggleSidebar()" class="text-gray-700 bg-gray-200 p-2 rounded-md hover:bg-gray-300">
                   <i class="bi" [ngClass]="isSidebarCollapsed ? 'bi-arrow-right-circle' : 'bi-arrow-left-circle'"></i>
               </button>Welcome to Hr Managment Dashboard</h1>
+=======
+             Welcome to HR Management</h1>
+>>>>>>> da5f0783c8cc063a04529f7154ebc07d84d4e4b5
           <p class="text-lg">Select a menu item from the sidebar to get started.</p>
       </div>
   </div>
 
   <!-- Footer -->
+<<<<<<< HEAD
   <footer class="bg-orange-800 text-white text-center p-3">
       &copy; 2025 HR Managment. All rights reserved.
+=======
+  <footer class="bg-green-700 text-white text-center p-3">
+      &copy; 2025 HR Management Dashboard. All rights reserved.
+>>>>>>> da5f0783c8cc063a04529f7154ebc07d84d4e4b5
   </footer>
 </div>
