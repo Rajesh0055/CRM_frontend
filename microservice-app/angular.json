@@ -234,8 +234,10 @@
             "tsConfig": "projects/interface/tsconfig.app.json",
             "assets": [
               {
+                
                 "glob": "**/*",
-                "input": "projects/interface/public"
+                "input": "projects/interface/public/assets"
+                
               }
             ],
             "styles": [
@@ -292,6 +294,7 @@
             "tsConfig": "projects/interface/tsconfig.spec.json",
             "assets": [
               {
+                
                 "glob": "**/*",
                 "input": "projects/interface/public"
               }

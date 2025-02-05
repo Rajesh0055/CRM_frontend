@@ -16,7 +16,7 @@ export class CommonComponent {
     if (service === 'CRM') {
       iframe.src = 'http://localhost:4200/crm-dashboard';  // CRM service URL
     } else if (service === 'HR') {
-      iframe.src = 'http://localhost:4201/hr-dashboard';  // HR service URL
+      iframe.src = 'http://localhost:51185/hr-admin';  // HR service URL
     } else if (service === 'Public Interface') {
       iframe.src = 'http://localhost:4202/interface-dashboard';  // Public Interface service URL
     }

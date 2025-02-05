@@ -1,4 +1,96 @@
-<div class="">
-    <router-outlet />
-</div>
+<div class="w-full h-screen flex flex-col font-sans bg-gradient-to-r from-gray-900 to-gray-700 text-white overflow-hidden fixed inset-0"> 
+    <!-- Header -->
+    <header class="bg-navy-900 p-3 flex items-center justify-between shadow-lg border-b-4 border-orange-500 h-14">
+        <div class="flex items-center space-x-3">
+            <img src="https://netstorage.ringcentral.com/appext/logo/7gufiGT3T3CCuCP37hMDaQ~GB48swpGSoyDYxiMFv2dAw/e4c88859-70e3-468c-821d-15aebb1bfe89.png"
+                alt="Logo" class="w-8 h-8 rounded-full shadow-lg">
+            <h1 class="text-lg font-bold">CRM Dashboard</h1>
+        </div>
 
+        <!-- Right Section -->
+        <div class="flex items-center space-x-6 relative pr-4">
+            <div class="text-white text-sm font-medium">
+                <span>{{ currentTime }}</span>
+            </div>
+            <div class="relative">
+                <button class="flex items-center space-x-2 text-white hover:text-gray-300" (click)="toggleProfileMenu()">
+                    <i class="bi bi-person-circle text-lg"></i>
+                    <span>John Doe</span>
+                </button>
+                <!-- Profile Dropdown -->
+                <div *ngIf="isProfileMenuOpen" class="absolute right-0 mt-2 w-48 bg-white text-gray-900 rounded-md shadow-lg z-50">
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-200">Profile</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-200">Settings</a>
+                    <button class="block w-full text-left px-4 py-2 hover:bg-gray-200 text-red-600" (click)="logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="flex flex-grow">
+        <!-- Sidebar -->
+        <div [ngClass]="{ 'w-64': isSidebarOpen, 'w-16': !isSidebarOpen }"
+            class="bg-orange-600 h-screen p-5 transition-all duration-500 flex flex-col relative">
+            <div *ngIf="isSidebarOpen" class="mt-4 flex items-center space-x-2 text-white">
+                <!-- Logo Image -->
+                <img src="https://netstorage.ringcentral.com/appext/logo/7gufiGT3T3CCuCP37hMDaQ~GB48swpGSoyDYxiMFv2dAw/e4c88859-70e3-468c-821d-15aebb1bfe89.png"
+                    alt="Logo" class="w-12 h-12 rounded-full shadow-lg">
+                <!-- CRM Webtool Name -->
+                <span class="text-xl font-bold">CRM Webtool</span>
+            </div>
+<!-- Collapse Button (On Sidebar's Top Right Corner) -->
+<button (click)="toggleSidebar()"
+    class="absolute top-0 right-0 transform translate-x-1/2 bg-gray-700 text-white p-2 rounded-full shadow-lg 
+            hover:bg-gray-600 transition duration-300 border-2 border-white">
+    <i [ngClass]="{ 'bi bi-chevron-left': isSidebarOpen, 'bi bi-chevron-right': !isSidebarOpen }" class="text-lg"></i>
+</button>
+
+
+
+            <!-- Sidebar Menu -->
+            <nav class="mt-4">
+                <ul>
+                    <li class="mb-4">
+                        <a href="#" class="flex items-center text-white px-4 py-2 rounded-lg transition-all duration-300"
+                            [ngClass]="{ 'justify-center': !isSidebarOpen, 'justify-start': isSidebarOpen }">
+                            <i class="bi bi-house-door text-xl"></i>
+                            <span *ngIf="isSidebarOpen" class="ml-3">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="flex items-center text-white px-4 py-2 rounded-lg transition-all duration-300"
+                            [ngClass]="{ 'justify-center': !isSidebarOpen, 'justify-start': isSidebarOpen }">
+                            <i class="bi bi-person text-xl"></i>
+                            <span *ngIf="isSidebarOpen" class="ml-3">Clients</span>
+                        </a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="flex items-center text-white px-4 py-2 rounded-lg transition-all duration-300"
+                            [ngClass]="{ 'justify-center': !isSidebarOpen, 'justify-start': isSidebarOpen }">
+                            <i class="bi bi-person-lines-fill text-xl"></i>
+                            <span *ngIf="isSidebarOpen" class="ml-3">Leads</span>
+                        </a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="flex items-center text-white px-4 py-2 rounded-lg transition-all duration-300"
+                            [ngClass]="{ 'justify-center': !isSidebarOpen, 'justify-start': isSidebarOpen }">
+                            <i class="bi bi-bar-chart text-xl"></i>
+                            <span *ngIf="isSidebarOpen" class="ml-3">Reports</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="flex-grow p-6 bg-gray-100 text-gray-900 overflow-auto transition-all duration-500">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center p-3 text-sm">
+        &copy; 2025 CRM Dashboard. All rights reserved.
+    </footer>
+    
+</div>

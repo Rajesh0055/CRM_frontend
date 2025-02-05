@@ -19,7 +19,7 @@ export class CRMAdminComponent implements OnInit, OnDestroy {
   constructor(private socketService: SocketService) { }
 
   ngOnInit(): void {
-    this.updateTime();
+  //  this.updateTime();
     setInterval(() => this.updateTime(), 1000);
 
      // Simulate a loading delay (e.g., fetching data from API)

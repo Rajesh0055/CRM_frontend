@@ -1,0 +1,39 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card login-card p-4 shadow">
+    <h2 class="text-center login-heading">Sign in to your account</h2>
+
+    <form [formGroup]="signInForm">
+      <!-- Email Field -->
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <div class="input-group">
+          <span class="input-group-text icon-box">
+            <i class="fas fa-envelope"></i>
+          </span>
+          <input type="email" formControlName="email" class="form-control custom-field" placeholder="Enter your Email">
+        </div>
+        <small class="text-danger d-none">Please enter a valid email</small>
+      </div>
+
+      <!-- Password Field -->
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <div class="input-group">
+          <span class="input-group-text icon-box">
+            <i class="fas fa-lock"></i>
+          </span>
+          <input type="password" formControlName="password" class="form-control custom-field" placeholder="Enter your Password">
+        </div>
+        <small class="text-danger d-none">Password is required</small>
+      </div>
+
+      <!-- Sign-in Button -->
+      <button type="submit" (click)="onSubmit()" [disabled]="signInForm.invalid" class="btn btn-primary w-100">Sign In</button>
+
+      <!-- Reset Password Button -->
+       <div *ngIf="showResetPasswordButton">
+      <button type="button" (click)="onResetPassword()" class="btn btn-link w-100">Reset Password</button>
+    </div>
+    </form>
+  </div>
+</div>
