@@ -22,7 +22,10 @@
           <span class="input-group-text icon-box">
             <i class="fas fa-lock"></i>
           </span>
-          <input type="password" formControlName="password" class="form-control custom-field" placeholder="Enter your Password">
+          <input  [type]="showPassword ? 'text' : 'password'"  formControlName="password" class="form-control custom-field" placeholder="Enter your Password">
+          <span class="input-group-text" (click)="togglePassword()" style="cursor: pointer;">
+            <i class="bi hide" [ngClass]="showPassword ? 'bi-eye-slash' : 'bi-eye'"></i>
+          </span>
         </div>
         <small class="text-danger d-none">Password is required</small>
       </div>

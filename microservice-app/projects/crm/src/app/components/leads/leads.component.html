@@ -1,1 +1,55 @@
-<p>leads works!</p>
+<div class="container mt-4">
+    <h2 class="fw-normal fs-4 mb-4">Leads </h2>
+  
+    <!-- Add Lead Form -->
+    <div class="card mb-4">
+      <div class="card-header">Add New Lead</div>
+      <div class="card-body">
+        <form (ngSubmit)="addLead()" >
+          <div class="row">
+            <div class="col-md-4">
+              <input type="text" class="form-control" formControlName="name" placeholder="Enter Your Name"  name="name" required />
+            </div>
+            <div class="col-md-4">
+              <input type="email" class="form-control" formControlName="email" placeholder="Enter Email Address"  name="email" required />
+            </div>
+            <div class="col-md-3">
+              <input type="tel" class="form-control" placeholder="Enter Phone Number"  formControlName="phone" name="phone" required />
+            </div>
+            <div class="col-md-1">
+              <button class="btn btn-color w-100" type="submit" (click)="addLead()">Add</button>
+            </div>
+          </div>
+        </form>                    
+      </div>
+    </div>
+  
+    <!-- Leads Table -->
+    <div class="card">
+      <div class="card-header">Leads List</div>
+      <div class="card-body">
+        <table class="table table-bordered table-striped">
+          <thead class="table-light">
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let lead of leads; let i = index">
+              <td>{{ lead.name }}</td>
+              <td>{{ lead.email }}</td>
+              <td>{{ lead.phone }}</td>
+              <td>
+                <button class="btn btn-danger btn-sm" (click)="deleteLead(i)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p *ngIf="leads.length === 0" class="text-center text-muted">No leads available.</p>
+      </div>
+    </div>
+  </div>
+  

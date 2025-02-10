@@ -16,6 +16,8 @@ export class ResetPasswordComponent implements OnInit {
   isEmailValid: boolean = false;
   emailNotExist: boolean = false;
   resetSuccess: boolean = false;
+  showNewPassword:boolean = false;
+  showCanfirmPassword:boolean = false;
   isResetPasswordVisible: boolean = false; // Show/hide reset password form
   passwordVisible: boolean = false; // Toggle for password visibilityassword visibility
 
@@ -24,7 +26,12 @@ export class ResetPasswordComponent implements OnInit {
   ];
   constructor(private fb: FormBuilder, private router:Router) {}
 
-
+  toggleNewPassword(){
+    this.showNewPassword = !this.showNewPassword;
+  }
+  toggleCanfirmPassword(){
+    this.showCanfirmPassword = !this.showCanfirmPassword;
+  }
 
 
 

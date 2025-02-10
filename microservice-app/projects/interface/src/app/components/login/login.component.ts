@@ -25,7 +25,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-
+  showPassword: boolean = false;
   failedAttempts: number = 0;
   showResetPasswordButton: boolean = false;
   signInForm: FormGroup;
@@ -69,5 +69,9 @@ export class LoginComponent {
     this.failedAttempts = 0;
     this.showResetPasswordButton = false;
     this.router.navigate(['/reset']);
+  }
+
+  togglePassword(){
+    this.showPassword = !this.showPassword;
   }
 }
