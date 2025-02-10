@@ -17,9 +17,10 @@ export class CRMAdminComponent implements OnInit, OnDestroy {
   currentTime: string = ''; 
   isSidebarCollapsed:any=false;
   isLoading: boolean = true;
-  constructor(private socketService: SocketService) { }
+  constructor(private socketService: SocketService) {
+   
+   }
   ngOnInit(): void {
-<<<<<<< HEAD
   //  this.updateTime();
     setInterval(() => this.updateTime(), 1000);
 
@@ -30,6 +31,12 @@ export class CRMAdminComponent implements OnInit, OnDestroy {
       this.socketService.connect();
       this.sendMessage();
   }
+
+
+userActivity= [{title:"💰 Total Client" , prize:"$25,000" },{title:"🧑‍🤝‍🧑 Total Revenue" , prize:"$120" },{title:"📈 Total Ticket" , prize:"$50,000" },]
+
+
+
 
   updateTime() {
     const now = new Date();
@@ -48,9 +55,6 @@ export class CRMAdminComponent implements OnInit, OnDestroy {
 
   toggleSidebar() {
     this.isSidebarCollapsed = !this.isSidebarCollapsed;
-=======
-    throw new Error('Method not implemented.');
->>>>>>> da5f0783c8cc063a04529f7154ebc07d84d4e4b5
   }
 
   ngOnDestroy(): void {
@@ -58,6 +62,7 @@ export class CRMAdminComponent implements OnInit, OnDestroy {
     if (this.socketService) {
       this.socketService.closeConnection(); // Call the cleanup method in the service
     }
+    
 
 
 

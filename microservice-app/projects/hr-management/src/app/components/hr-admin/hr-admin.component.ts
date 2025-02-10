@@ -1,93 +1,62 @@
-import { Component } from '@angular/core';
-<<<<<<< HEAD
-import { SocketService } from '../../../../../shared-services/src/public-api';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SocketService } from '../../../../../shared-services/src/public-api';
 
 @Component({
   selector: 'app-hr-admin',
+  standalone: true,
   imports: [CommonModule],
-=======
-import { HrSidebarComponent } from '../hr-sidebar/hr-sidebar.component'; // Import your sidebar component
-import { SocketService } from '../../../../../shared-services/src/public-api';
-import { CommonModule } from '@angular/common';
-@Component({
-  selector: 'app-hr-admin',
-  imports: [CommonModule],
-  standalone:true,
->>>>>>> da5f0783c8cc063a04529f7154ebc07d84d4e4b5
   templateUrl: './hr-admin.component.html',
-  styleUrl: './hr-admin.component.css'
+  styleUrls: ['./hr-admin.component.css']
 })
-export class HRAdminComponent {
+export class HRAdminComponent implements OnInit, OnDestroy {
   public messages: string[] = [];
-  public messageToSend: string = ''; // Message that the user wants to send
+  public messageToSend: string = ''; // Message input
   currentTime: string = ''; 
-  isSidebarCollapsed:any=false;
-  isLoading: boolean = true;
-  constructor(private socketService: SocketService) { }
+  isSidebarCollapsed: boolean = false; // Sidebar state
+  isLoading: boolean = true; // Loading indicator
 
-<<<<<<< HEAD
-  constructor(private socketService: SocketService) { }
-  public messages: string[] = [];
-  public messageToSend: string = ''; // Message that the user wants to send
-  currentTime: string = ''; 
-  isSidebarCollapsed:any=false;
-  isLoading: boolean = true;
+  constructor(private socketService: SocketService) {}
 
-=======
->>>>>>> da5f0783c8cc063a04529f7154ebc07d84d4e4b5
   ngOnInit(): void {
     this.updateTime();
     setInterval(() => this.updateTime(), 1000);
 
-     // Simulate a loading delay (e.g., fetching data from API)
-     setTimeout(() => {
+    // Simulate loading delay (e.g., API fetch)
+    setTimeout(() => {
       this.isLoading = false;
     }, 3000); 
-<<<<<<< HEAD
-=======
-    
->>>>>>> da5f0783c8cc063a04529f7154ebc07d84d4e4b5
-      this.socketService.connect();
-      this.sendMessage();
+
+    this.socketService.connect();
   }
 
-  updateTime() {
+  updateTime(): void {
     const now = new Date();
-    const hours = now.getHours().toString().padStart(2, '0');
-    const minutes = now.getMinutes().toString().padStart(2, '0');
-    const seconds = now.getSeconds().toString().padStart(2, '0');
-    this.currentTime = `${hours}:${minutes}:${seconds}`;
+    this.currentTime = now.toLocaleTimeString();
   }
+
   sendMessage(): void {
     if (this.messageToSend.trim()) {
       this.socketService.sendMessage('service-name', { content: this.messageToSend });
       this.messageToSend = ''; 
+    } else {
       console.log('Message is empty');
     }
   }
 
-  toggleSidebar() {
+  toggleSidebar(): void {
     this.isSidebarCollapsed = !this.isSidebarCollapsed;
+  }
+
+  sendToHR(): void {
+    this.socketService.sendMessage('hr', { message: 'Hello HR service!' });
+  }
+
+  sendToCRM(): void {
+    this.socketService.sendMessage('crm', { message: 'Hello CRM service!' });
   }
 
   ngOnDestroy(): void {
     this.socketService.closeConnection();
   }
-<<<<<<< HEAD
-
-  sendToHR(): void {
-    const hrData = { message: 'Hello HR service!' };
-    this.socketService.sendMessage('hr', hrData); // Send message to HR service
-  }
-
-  sendToCRM(): void {
-    const crmData = { message: 'Hello CRM service!' };
-    this.socketService.sendMessage('crm', crmData); // Send message to CRM service
-  }
-=======
-  
->>>>>>> da5f0783c8cc063a04529f7154ebc07d84d4e4b5
 }
-
-

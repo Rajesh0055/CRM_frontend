@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-/* Loading Bar Animation */
->>>>>>> da5f0783c8cc063a04529f7154ebc07d84d4e4b5
 @keyframes loading-bar {
     0% {
       width: 0;
@@ -10,19 +6,84 @@
       width: 100%;
     }
   }
+  .sidebar-expanded {
+    width: 250px;
+    transition: width 0.4s ease-in-out;
+}
+.sidebar-collapsed {
+    width: 70px;
+    transition: width 0.4s ease-in-out;
+}
   
   .animate-loading-bar {
     animation: loading-bar 2s ease-out;
   }
-  
-<<<<<<< HEAD
-=======
-   header{
-    background-color: rgb(31, 41, 55,1);
-  } 
- 
+  .sidebar-expanded {
+    width: 250px;
+    transition: width 0.4s ease-in-out;
+}
+.sidebar-collapsed {
+    width: 70px;
+    transition: width 0.4s ease-in-out;
+}
 
->>>>>>> da5f0783c8cc063a04529f7154ebc07d84d4e4b5
+.bg-color{
+  background: #008B8B !important
+}
+
+.btn-arrow{
+  color: #fff;
+  /* background: #E5E7EB; */
+  padding: 8px;
+  border-radius: 6px;
+
+}
+.nav-item :focus{
+  background: #99acca !important;  
+}
+/* Container for the search input and button */
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+
+
+.search-icon:hover {
+  background-color: #008B8B;
+}
+
+/* Search input field */
+.search-input {
+  width: 100%;
+  outline: none;
+  padding: 10px;
+  color: #333;
+  border: 2px solid #008B8B;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: width 0.5s ease, padding 0.5s ease;
+
+
+
+}
+
+/* When search icon is clicked, show the search input */
+.search-input.active {
+  width: 200px;
+  opacity: 1;
+  padding: 10px;
+}
+
+/* Optional: Add animation for the search icon */
+
+
+
+
+
+
+  
   /* Loading Spinner */
   .loader {
     border: 6px solid #f3f3f3;
@@ -32,6 +93,50 @@
     height: 50px;
     animation: spin 1s linear infinite;
   }
+  /* Sidebar Styling */
+
+
+/* Accordion List Animation */
+.accordion-list {
+  display: block;
+  margin-top: 5px;
+  transition: height 0.3s ease;
+}
+
+/* Transition for chevron icon */
+.bi-chevron-down, .bi-chevron-up {
+  transition: transform 0.3s ease;
+}
+
+/* Accordion active state */
+.nav-item.active .accordion-list {
+  display: block;
+}
+
+/* Styling for nested items */
+.nav-item .ms-4 {
+  margin-left: 20px;
+}
+
+.nav-link {
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  background-color: #444;
+}
+
+/* Add the transition for the chevron */
+.bi-chevron-down {
+  transform: rotate(0deg);
+}
+
+.bi-chevron-up {
+  transform: rotate(180deg);
+}
+
   
   @keyframes spin {
     0% { transform: rotate(0deg); }
@@ -42,36 +147,4 @@
   /* .p-6.pb-10 {
     margin-bottom: 30px;
   } */
-<<<<<<< HEAD
   
-=======
-  
-
-  .search-input {
-    width: 400px;
-    padding: 8px 12px;
-    border-radius: 8px;
-    border: none;
-    outline: none;
-    font-size: 14px;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: white;
-    transition: background-color 0.3s ease;
-  }
-
-  .search-input:focus {
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-  
-  /* Search icon */
-  .search-icon {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 16px;
-    color: white;
-    pointer-events: none; /* Prevent interaction with the icon */
-  }
-
->>>>>>> da5f0783c8cc063a04529f7154ebc07d84d4e4b5
